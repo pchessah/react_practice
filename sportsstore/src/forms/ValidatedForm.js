@@ -33,13 +33,11 @@ export class ValidatedForm extends Component {
       }
     );
   };
-
   registerRef = (element) => {
     if (element !== null) {
       this.formElements[element.name] = element;
     }
   };
-
   renderElement = (modelItem) => {
     const name = modelItem.name || modelItem.label.toLowerCase();
     return (
@@ -56,7 +54,6 @@ export class ValidatedForm extends Component {
       </div>
     );
   };
-
   render() {
     return (
       <React.Fragment>
