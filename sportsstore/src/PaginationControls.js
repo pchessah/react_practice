@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import { PaginationButtons } from "./PaginationButtons";
-
 export class PaginationControls extends Component {
   constructor(props) {
     super(props);
     this.pageSizes = this.props.sizes || [5, 10, 25, 100];
     this.sortKeys = this.props.keys || ["Name", "Price"];
   }
-
   handlePageSizeChange = (ev) => {
     this.props.setPageSize(ev.target.value);
   };
-
   handleSortPropertyChange = (ev) => {
     this.props.setSortProperty(ev.target.value);
   };
-
   render() {
     return (
       <div className="m-2">
@@ -30,7 +26,7 @@ export class PaginationControls extends Component {
           <select
             className="form-control"
             onChange={this.handlePageSizeChange}
-            value={this.props.pageSize || this.props.pageSizes[0]}
+            value={this.props.pageSize || this.pageSizes[0]}
           >
             {this.pageSizes.map((s) => (
               <option value={s} key={s}>
@@ -41,11 +37,11 @@ export class PaginationControls extends Component {
           <select
             className="form-control"
             onChange={this.handleSortPropertyChange}
-            value={this.props.sortKey || this.props.sortKeys[0]}
+            value={this.props.sortKey || this.sortKeys[0]}
           >
             {this.sortKeys.map((k) => (
               <option value={k.toLowerCase()} key={k}>
-                Sort by {k}
+                Sort By {k}
               </option>
             ))}
           </select>
